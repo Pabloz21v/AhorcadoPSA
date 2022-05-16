@@ -1,0 +1,28 @@
+body{
+    position: relative;
+    max-width: 1200px;
+    max-height: 800px;
+    background-color: #d0cfe9;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: red;
+}
+
+#icono{
+    display: static;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    margin: 1%;
+}
+
+#titulo{
+    width: 100%;
+    margin: 0 40%;
+    padding: 2% 3%;
+    
+}
