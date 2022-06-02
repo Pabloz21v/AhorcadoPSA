@@ -3,26 +3,113 @@ body{
     max-width: 1200px;
     max-height: 800px;
     background-color: #d0cfe9;
+    
 }
 
 header{
+    height: 20%;
     display: flex;
     align-items: center;
     flex-direction: row;
     background-color: red;
+    padding: 2.5%;
 }
 
 #icono{
-    display: static;
-    flex-direction: column;
+    position: absolute;
     align-items: flex-start;
-    padding: 0px;
-    margin: 1%;
+    margin: 2%;
 }
 
 #titulo{
+    display: block;
+    text-align: center;
     width: 100%;
-    margin: 0 40%;
-    padding: 2% 3%;
+    margin: 0 20%;
+    font-size: 35px;
+    background-color: purple;
+}
+
+#botones{
+    background-color: black;
+    padding: 6% 0;
+}
+
+#botonInicio{
+    display: block;
+    text-align:center;
+    width: 55%;
+    height: 77px;
+    margin: 10% auto;
+    color: aliceblue;
+    background: #0A3871;
+    border-radius: 24px;
+    font-size: 40px;
     
 }
+
+#botonPalabraNueva{
+    display: block;
+    text-align: center;
+    width: 50%;
+    height: 50px;
+    margin: 10% auto;
+    color: #0A3871;
+    background:aliceblue ;
+    border-radius: 24px;
+    font-size: 25px;
+}
+
+#yo{
+    text-align: center;
+}
+@media only screen and (max-width: 768px) {
+    header{
+        padding: 3.5%;
+    }
+    #titulo{
+        
+        font-size: 30px;
+        
+    }
+    #botones{
+        background-color: #144;
+        padding: 15%;
+    }
+    #botonInicio{
+        width: 75%;
+        height: 77px;
+        font-size:25px;
+        margin-bottom: 100px;
+    }
+    #botonPalabraNueva{
+        width: 70%;
+        font-size:16px;
+        margin-top: 100px;
+    }
+}
+@media only screen and (max-width: 375px) {
+    header{
+        padding: 5%;
+    }
+    #titulo{
+        font-size: 25px;
+    }
+    #botones{
+        background-color: #055;
+        padding: 15%;
+    }
+    #botonInicio{
+        width: 75%;
+        height: 77px;
+        font-size:25px;
+        margin-bottom: 100px;
+    }
+    #botonPalabraNueva{
+        width: auto;
+        font-size:16px;
+        margin-top: 100px;
+    }
+  }
+
+  
