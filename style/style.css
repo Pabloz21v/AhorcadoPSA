@@ -60,32 +60,97 @@ header{
     font-size: 25px;
 }
 
+#mainPalabraNueva{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #055;
+   
+    
+}
+
+#ingresarPalabraNueva{
+    margin: 25% 5%;
+    width: 80%;
+    padding: 5%;
+    font-size: 25px;
+}
+#botonesNuevaPalabra{
+    display: flex;
+    flex-direction:  row;
+    
+}
+
+#botonGuardarPalabraNueva{
+    text-align:center;
+    width: 350px;
+    padding: 5%;
+    margin: 10% 5%;
+    color: aliceblue;
+    background: #0A3871;
+    border-radius: 24px;
+    font-size: 25px;
+}
+
+#botonCancelar{
+    text-align: center;
+    width: 350px;
+    padding: 5%;
+    margin: 10% 5%;
+    color: #0A3871;
+    background:aliceblue ;
+    border-radius: 24px;
+    font-size: 25px;
+}
+
 #yo{
     text-align: center;
+    vertical-align: bottom;
 }
 @media only screen and (max-width: 768px) {
     header{
         padding: 3.5%;
     }
+
     #titulo{
-        
         font-size: 30px;
-        
     }
+    
     #botones{
         background-color: #144;
         padding: 15%;
     }
+
     #botonInicio{
         width: 75%;
         height: 77px;
         font-size:25px;
         margin-bottom: 100px;
     }
+
     #botonPalabraNueva{
         width: 70%;
         font-size:16px;
         margin-top: 100px;
+    }
+
+    #ingresarPalabraNueva{
+        margin: 25% 5%;
+        width: 80%;
+        padding: 5%;
+    }
+    
+    #botonGuardarPalabraNueva, #botonCancelar{
+        font-size:18px;
+        width: 175px;
+        height: 50px;
+        padding: 5px;
+        margin: 10% 5%;
+    }
+    #yo{
+        margin-top: 25%;
+        text-align: center;
+        vertical-align: bottom;
     }
 }
 @media only screen and (max-width: 375px) {
@@ -105,10 +170,36 @@ header{
         font-size:25px;
         margin-bottom: 100px;
     }
+
+
     #botonPalabraNueva{
         width: auto;
         font-size:16px;
         margin-top: 100px;
+    }
+
+    #botonesNuevaPalabra{
+        display: flex;
+        flex-direction:  column;
+        margin: 10%;
+        
+    }
+    #ingresarPalabraNueva{
+        margin: 25% 5%;
+        width: 80%;
+        padding: 5%;
+    }
+    #botonGuardarPalabraNueva, #botonCancelar{
+        font-size: 16px;
+        width: 250px;
+        height: 50px;
+        padding: 5px;
+        margin: 10% auto;
+    }
+    #yo{
+      
+        text-align: center;
+        vertical-align: bottom;
     }
   }
 
