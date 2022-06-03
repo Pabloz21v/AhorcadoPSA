@@ -3,6 +3,8 @@ let botonInicio = document.querySelector("#botonInicio");
 botonInicio.addEventListener("click",function(event) {
     event.preventDefault();
     
-    document.location='ahorcado_play.html'
+    redireccion = document.location='ahorcado_play.html'
+
+    document.querySelector("#botonInicio") = redireccion
 })
 
