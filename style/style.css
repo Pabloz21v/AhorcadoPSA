@@ -103,10 +103,37 @@ header{
     font-size: 25px;
 }
 
+#botones_ahoracado{
+text-align: center;
+}
+
+#botonNuevoJuego{
+text-align:center;
+    width: 350px;
+    padding: 2%;
+    margin: 5% 2%;
+    color: aliceblue;
+    background: #0A3871;
+    border-radius: 24px;
+    font-size: 20px;
+}
+
+#botonDesistir{
+    text-align: center;
+    width: 350px;
+    padding: 2%;
+    margin: 5% 2%;
+    color: #0A3871;
+    background:aliceblue ;
+    border-radius: 24px;
+    font-size: 20px;
+}
+
 #yo{
     text-align: center;
     vertical-align: bottom;
 }
+
 @media only screen and (max-width: 768px) {
     header{
         padding: 3.5%;
