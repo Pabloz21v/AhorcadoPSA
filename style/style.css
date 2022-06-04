@@ -103,12 +103,37 @@ header{
     font-size: 25px;
 }
 
-#botones_ahoracado{
-text-align: center;
+#renglones, #letrasCorrectas{
+    display:flex;
+    flex-direction: row;
+    margin: 0 10%;
+    font-size: 55px;
+
+}
+
+
+.renglonInvididual, .letraInvididual{
+    margin: auto;
+}
+
+.invisible{
+    opacity: 0;
+}
+.visible{
+    opacity: 1;
+}
+
+
+#imagenRenglon{
+   width: 100px;
+}
+
+#botones_ahorcado{
+    text-align: center;
 }
 
 #botonNuevoJuego{
-text-align:center;
+    text-align:center;
     width: 350px;
     padding: 2%;
     margin: 5% 2%;

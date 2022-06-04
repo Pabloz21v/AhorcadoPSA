@@ -17,11 +17,25 @@
     </header>
 
     <main id="main_ahorcado">
-        <div id="juegoAhorcado"></div>
+        <div id="juegoAhorcado">
+            <div 
+                id="animacionAhorcado">
+            </div>
+            <div >
+                <ul id="letrasCorrectas"></ul>
+            </div>
+            <div >
+                <ul id="renglones"></ul>
+            </div>
+            <div >
+                <ul id="letrasIncorrectas"></ul>
+            </div>
+        </div>
         
-        <div id="botones_ahoracado">
+        <div id="botones_ahorcado">
             <input id="botonNuevoJuego"  type="button" value="Nuevo juego">
-            <button id="botonDesistir" onclick="document.location='index.html'">Desistir</button>
+            <input id="botonDesistir"  type="button" value="Desistir">
+      
         </div>
        
     </main>
@@ -33,7 +47,7 @@
         
     </footer>
 
-    <script src="script/inicio.js"></script>
+    <script src="script/ahorcado_play.js"></script>
 </body>
 
 </html>
