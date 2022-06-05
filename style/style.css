@@ -103,17 +103,28 @@ header{
     font-size: 25px;
 }
 
-#renglones, #letrasCorrectas{
+#renglones, #letrasCorrectas, #letrasIncorrectas{
     display:flex;
     flex-direction: row;
     margin: 0 10%;
     font-size: 55px;
+   
 
 }
-
-
-.renglonInvididual, .letraInvididual{
+#textoLetrasIncorrectas{
+    text-align: center;
+    margin: 3% auto 0 auto;
+    font-size: 35px;
+}
+.renglonInvididual, .letraInvididual {
     margin: auto;
+}
+
+.letraErrada{
+    
+    display:flex;
+    flex-direction: row;
+    margin: 0 5px;
 }
 
 .invisible{
