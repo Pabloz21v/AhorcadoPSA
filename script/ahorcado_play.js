@@ -5,6 +5,8 @@ let sieteLetras=["ciervos","experto","experta","idiomas","grafico","parques","pl
 let ochoLetras=["batallas","deportes","clientes","espacios","ejercito","juguetes","pajarito"];
 let arrayPalabras=[cuatroLetras, cincoLetras, seisLetras, sieteLetras, ochoLetras];
 let arrayLetrasErradas = [];
+let palabraCorrecta = [];
+console.log(palabraElegida)
 
 //eleccion de palabra----------------
 let elegirLargoDePalabra = Math.round(Math.random()*(arrayPalabras.length-1));
@@ -20,13 +22,13 @@ for (let i = 0; i < largoDeLaPalabra; i++) {
     const item = document.createElement("LI")
     item.innerHTML =  "<p class='invisible' id='" + palabraElegida[i]+[i] + "' > " + palabraElegida[i] + "</p>"
     item.classList.add("letraInvididual")
-    
     letra.appendChild(item)
 }
 letrasCorrectas.appendChild(letra)
 
 //al precionar una tecla ---------------------------------
 const body = document.querySelector("body")
+
 
 body.addEventListener("keydown",function(event) {
     event.preventDefault();
@@ -39,40 +41,44 @@ body.addEventListener("keydown",function(event) {
             let ids = document.querySelector(idCorrecto)
             ids.classList.add("visible")
             ids.classList.remove("invisible")
+            
         }   
             
-    }
-    console.log(palabraElegida)
-    let arrayDePalabra = palabraElegida.split("");
-
-    function existira(letraPrecionada) {
-        let existe = arrayDePalabra.indexOf(letraPrecionada);  
-       
-        if (existe == -1) {
-            const letrasIncorrectas = document.querySelector("#letrasIncorrectas")
-            const letraIncorrecta =  document.createDocumentFragment()
-            const crearLi = document.createElement("LI")
-            crearLi.innerHTML = "<p class='letraErrada'> " + letraPrecionada + "</p>"
-            letraIncorrecta.appendChild(crearLi)
-            letrasIncorrectas.appendChild(letraIncorrecta)
-        } 
-    }
-    existira(letraPrecionada)
+    }  
     grabarLetras(letraPrecionada)
+    victoria(letraPrecionada)
 })
+
+function victoria(letraPrecionada) {
+    for (let i = 0; i < largoDeLaPalabra; i++) {
+        if (letraPrecionada == palabraElegida[i]) {
+            palabraCorrecta[i] = letraPrecionada
+        }  
+        
+    }
+    if (palabraCorrecta.join("") == palabraElegida) {
+        console.log("U WIN")
+    } 
+}
 
 for (let i = 0; i < largoDeLaPalabra; i++) {
     arrayLetrasErradas.push(palabraElegida[i])
 }
 
-
+let vidas = 0;
 function grabarLetras(letraPrecionada) {
-    if (arrayLetrasErradas.indexOf(letraPrecionada) == -1) {
+    if (arrayLetrasErradas.indexOf(letraPrecionada) == -1 && vidas < 10) {
         arrayLetrasErradas.push(letraPrecionada)
-        
+        const letrasIncorrectas = document.querySelector("#letrasIncorrectas")
+        const letraIncorrecta =  document.createDocumentFragment()
+        const crearLi = document.createElement("LI")
+        crearLi.innerHTML = "<p class='letraErrada'> " + letraPrecionada + "</p>"
+        letraIncorrecta.appendChild(crearLi)
+        letrasIncorrectas.appendChild(letraIncorrecta)
+        vidas = vidas + 1
+    } else if (vidas == 10){
+        console.log("GAME OVER")
     }
-    
-    console.log(arrayLetrasErradas)
     
 }
 
@@ -88,7 +94,7 @@ for (let i = 0; i < largoDeLaPalabra; i++) {
 }
 renglones.appendChild(renglon)
 
-//ubicacion de letras erroneas----------------------
+
 
 
 // boton para volver a inicio------------------------
