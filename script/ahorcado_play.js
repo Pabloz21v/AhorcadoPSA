@@ -1,19 +1,32 @@
-let cuatroLetras= ["casa","pato","gato","vaso","foca","jugo","mesa","masa","nuez","baño"];
-let cincoLetras=["hacha","cacao","cajas","campo","joyas","leyes","monja","manos","niños","alura"];
-let seisLetras=["cantar","cabeza","cursos","oracle","discos","diosas","doctor","hachas","iconos"];
-let sieteLetras=["ciervos","experto","experta","idiomas","grafico","parques","plantas","siervos"];
-let ochoLetras=["batallas","deportes","clientes","espacios","ejercito","juguetes","pajarito"];
-let arrayPalabras=[cuatroLetras, cincoLetras, seisLetras, sieteLetras, ochoLetras];
+const cuatroLetras= ["casa","pato","gato","vaso","foca","jugo","mesa","masa","nuez","baño"];
+const cincoLetras=["hacha","cacao","cajas","campo","joyas","leyes","monja","manos","niños","alura"];
+const seisLetras=["cantar","cabeza","cursos","oracle","discos","diosas","doctor","hachas","iconos"];
+const sieteLetras=["ciervos","experto","experta","idiomas","grafico","parques","plantas","siervos"];
+const ochoLetras=["batallas","deportes","clientes","espacios","ejercito","juguetes","pajarito"];
+const arrayPalabras=[cuatroLetras, cincoLetras, seisLetras, sieteLetras, ochoLetras];
 let arrayLetrasErradas = [];
 let palabraCorrecta = [];
-console.log(palabraElegida)
+let vidas = 0;
+let palabraEscrita ="";
+palabraEscrita = localStorage.getItem("palabraSecreta")
+
+
+
 
 //eleccion de palabra----------------
 let elegirLargoDePalabra = Math.round(Math.random()*(arrayPalabras.length-1));
 let arrayElegido = arrayPalabras[elegirLargoDePalabra];
 let elegirPalabra = Math.round(Math.random()*(arrayElegido.length-1));
-let palabraElegida = arrayElegido[elegirPalabra];
+let palabraElegida =  arrayElegido[elegirPalabra].toUpperCase();
+
+if (palabraEscrita != null && palabraEscrita.length >= 1) {
+    palabraElegida = palabraEscrita.toUpperCase();
+}
+localStorage.removeItem("palabraSecreta")
 let largoDeLaPalabra = palabraElegida.length;
+
+
+
 
 //creacion de palabra invisible en pantalla---------------
 const letrasCorrectas = document.querySelector("#letrasCorrectas")
@@ -32,40 +45,55 @@ const body = document.querySelector("body")
 
 body.addEventListener("keydown",function(event) {
     event.preventDefault();
-    
-    let letraPrecionada = event.key
-    for (let i = 0; i < largoDeLaPalabra; i++) {
+    let letraPrecionadaInicial = event.key
+    let letraPrecionada = letraPrecionadaInicial.toUpperCase()
+
+    let largoLetraPrecionada = letraPrecionada.length;
+    if (letraPrecionada != letraPrecionada.toLowerCase() && largoLetraPrecionada == 1) {
+        coincidencias(letraPrecionada)
+        grabarLetras(letraPrecionada)
+        victoria(letraPrecionada)
         
-        if (letraPrecionada == palabraElegida[i]) {
+    }
+    /*if (caracter > 64 && caracter < 91 || caracter==209 && largoLetraPrecionada == 1) {
+        coincidencias(letraPrecionada)
+        grabarLetras(letraPrecionada)
+        victoria(letraPrecionada)
+    } */
+    animacionDeAhorcado(vidas)
+})
+
+//busca coincidencias
+function coincidencias(letraPrecionada) {
+    for (let i = 0; i < largoDeLaPalabra; i++) {
+        if (letraPrecionada == palabraElegida[i] && vidas < 10 ) {
             idCorrecto = "#"+palabraElegida[i]+[i] 
             let ids = document.querySelector(idCorrecto)
             ids.classList.add("visible")
             ids.classList.remove("invisible")
-            
         }   
-            
-    }  
-    grabarLetras(letraPrecionada)
-    victoria(letraPrecionada)
-})
-
+    } 
+}
+//registra los aciertos y anunca cuando ganaste
 function victoria(letraPrecionada) {
     for (let i = 0; i < largoDeLaPalabra; i++) {
         if (letraPrecionada == palabraElegida[i]) {
             palabraCorrecta[i] = letraPrecionada
         }  
-        
     }
-    if (palabraCorrecta.join("") == palabraElegida) {
-        console.log("U WIN")
+    if (palabraCorrecta.join("") == palabraElegida &&  vidas < 10) {
+        let victoria = document.querySelector("#victoria")
+        victoria.classList.add("visible")
+        victoria.classList.remove("invisible")
     } 
 }
+
 
 for (let i = 0; i < largoDeLaPalabra; i++) {
     arrayLetrasErradas.push(palabraElegida[i])
 }
 
-let vidas = 0;
+//cuenta las vidas gastadas y anunca si perdiste
 function grabarLetras(letraPrecionada) {
     if (arrayLetrasErradas.indexOf(letraPrecionada) == -1 && vidas < 10) {
         arrayLetrasErradas.push(letraPrecionada)
@@ -76,12 +104,24 @@ function grabarLetras(letraPrecionada) {
         letraIncorrecta.appendChild(crearLi)
         letrasIncorrectas.appendChild(letraIncorrecta)
         vidas = vidas + 1
-    } else if (vidas == 10){
-        console.log("GAME OVER")
+    } 
+    if (vidas == 10 && palabraCorrecta.join("") != palabraElegida){
+        let derrota = document.querySelector("#derrota")
+        derrota.classList.add("visible")
+        derrota.classList.remove("invisible")
     }
-    
+
 }
 
+//aparecen las figuras del ahorcado 
+function animacionDeAhorcado(vidas) {
+    for (let i = 1; i <= vidas; i++) {
+        let imagenVisible = document.querySelector("#img"+[i])
+        imagenVisible.classList.add("visible")
+        imagenVisible.classList.remove("invisible")
+    } 
+    
+}
 
 //creacion de renglones acorde a la palabra--------------------
 const renglones = document.querySelector("#renglones")
@@ -96,6 +136,14 @@ renglones.appendChild(renglon)
 
 
 
+// boton nuevo juego------------------------
+let botonNuevoJuego = document.querySelector("#botonNuevoJuego");
+
+botonNuevoJuego.addEventListener("click",function(event) {
+    event.preventDefault();
+    location.reload();
+})
+
 
 // boton para volver a inicio------------------------
 let botonDesistir = document.querySelector("#botonDesistir");
@@ -105,3 +153,5 @@ botonDesistir.addEventListener("click",function(event) {
     let index = document.location='index.html';
     document.querySelector("#botonDesistir") = index;
 })
+
+
