@@ -10,9 +10,6 @@ let vidas = 0;
 let palabraEscrita ="";
 palabraEscrita = localStorage.getItem("palabraSecreta")
 
-
-
-
 //eleccion de palabra----------------
 let elegirLargoDePalabra = Math.round(Math.random()*(arrayPalabras.length-1));
 let arrayElegido = arrayPalabras[elegirLargoDePalabra];
@@ -24,9 +21,6 @@ if (palabraEscrita != null && palabraEscrita.length >= 1) {
 }
 localStorage.removeItem("palabraSecreta")
 let largoDeLaPalabra = palabraElegida.length;
-
-
-
 
 //creacion de palabra invisible en pantalla---------------
 const letrasCorrectas = document.querySelector("#letrasCorrectas")
@@ -42,24 +36,20 @@ letrasCorrectas.appendChild(letra)
 //al precionar una tecla ---------------------------------
 const body = document.querySelector("body")
 
-
 body.addEventListener("keydown",function(event) {
     event.preventDefault();
     let letraPrecionadaInicial = event.key
     let letraPrecionada = letraPrecionadaInicial.toUpperCase()
 
+    let expReg = /[A-Z]/;
+
     let largoLetraPrecionada = letraPrecionada.length;
-    if (letraPrecionada != letraPrecionada.toLowerCase() && largoLetraPrecionada == 1) {
+    if (letraPrecionada != letraPrecionada.toLowerCase() && largoLetraPrecionada == 1 && letraPrecionada.search(expReg) == 0 ) {
         coincidencias(letraPrecionada)
         grabarLetras(letraPrecionada)
         victoria(letraPrecionada)
         
     }
-    /*if (caracter > 64 && caracter < 91 || caracter==209 && largoLetraPrecionada == 1) {
-        coincidencias(letraPrecionada)
-        grabarLetras(letraPrecionada)
-        victoria(letraPrecionada)
-    } */
     animacionDeAhorcado(vidas)
 })
 
@@ -107,6 +97,7 @@ function grabarLetras(letraPrecionada) {
     } 
     if (vidas == 10 && palabraCorrecta.join("") != palabraElegida){
         let derrota = document.querySelector("#derrota")
+        derrota.innerHTML = "FIN DEL JUEGO >>> (" + palabraElegida + ")";
         derrota.classList.add("visible")
         derrota.classList.remove("invisible")
     }
@@ -134,8 +125,6 @@ for (let i = 0; i < largoDeLaPalabra; i++) {
 }
 renglones.appendChild(renglon)
 
-
-
 // boton nuevo juego------------------------
 let botonNuevoJuego = document.querySelector("#botonNuevoJuego");
 
@@ -143,7 +132,6 @@ botonNuevoJuego.addEventListener("click",function(event) {
     event.preventDefault();
     location.reload();
 })
-
 
 // boton para volver a inicio------------------------
 let botonDesistir = document.querySelector("#botonDesistir");

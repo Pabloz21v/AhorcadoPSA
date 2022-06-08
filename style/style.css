@@ -2,7 +2,7 @@ body{
     position: relative;
     max-width: 1200px;
     max-height: 800px;
-    background-color: #d0cfe9;
+    background-color: #97dff3;
     
 }
 
@@ -11,27 +11,39 @@ header{
     display: flex;
     align-items: center;
     flex-direction: row;
-    background-color: red;
     padding: 2.5%;
 }
 
-#icono{
-    position: absolute;
-    align-items: flex-start;
-    margin: 2%;
-}
-
-#titulo{
+#titulo {
     display: block;
     text-align: center;
     width: 100%;
     margin: 0 20%;
     font-size: 35px;
-    background-color: purple;
+}
+#derrota, #victoria{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 35px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+#derrota{
+    color: red;
+    
+}
+#victoria{
+    color: rgb(49, 167, 49);
+    
+}
+#icono{
+    position: absolute;
+    align-items: flex-start;
+    margin: 2%;
+}
 #botones{
-    background-color: black;
     padding: 6% 0;
 }
 
@@ -42,7 +54,7 @@ header{
     height: 77px;
     margin: 10% auto;
     color: aliceblue;
-    background: #0A3871;
+    background: #156191;
     border-radius: 24px;
     font-size: 40px;
     
@@ -55,18 +67,20 @@ header{
     height: 50px;
     margin: 10% auto;
     color: #0A3871;
-    background:aliceblue ;
+    background:rgb(75, 232, 148) ;
     border-radius: 24px;
     font-size: 25px;
 }
 
+#bloqueExclamacion{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 #mainPalabraNueva{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #055;
-   
-    
 }
 
 #ingresarPalabraNueva{
@@ -78,7 +92,6 @@ header{
 #botonesNuevaPalabra{
     display: flex;
     flex-direction:  row;
-    
 }
 
 #botonGuardarPalabraNueva{
@@ -87,56 +100,70 @@ header{
     padding: 5%;
     margin: 10% 5%;
     color: aliceblue;
-    background: #0A3871;
+    background: #13666f;
     border-radius: 24px;
     font-size: 25px;
 }
 
+#ingresarPalabraNueva{
+    background-color: rgb(144, 238, 192);
+}
 #botonCancelar{
     text-align: center;
     width: 350px;
     padding: 5%;
     margin: 10% 5%;
     color: #0A3871;
-    background:aliceblue ;
+    background:rgb(60, 173, 207) ;
     border-radius: 24px;
     font-size: 25px;
 }
 
-#renglones, #letrasCorrectas, #letrasIncorrectas{
+#renglones, #letrasCorrectas{
     display:flex;
     flex-direction: row;
     margin: 0 10%;
-    font-size: 55px;
-   
-
-}
-#textoLetrasIncorrectas{
-    text-align: center;
-    margin: 3% auto 0 auto;
     font-size: 35px;
 }
+#bloqueLetrasIncorrectas{
+    height: 80px;
+    
+}
+#letrasIncorrectas{
+    display: inline-flex;
+    flex-direction: row;
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: 35px;
+}
+
+#textoLetrasIncorrectas{
+    text-align: center;
+    margin: 1%  auto;
+    font-size: 35px;
+}
+
 .renglonInvididual, .letraInvididual {
-    margin: auto;
+    margin: 0 auto;
 }
 
 .letraErrada{
-    
-    display:flex;
+    max-width: 100%;
+    display: inline-flex;
     flex-direction: row;
-    margin: 0 5px;
+    margin: 0 10px;
 }
 
 .invisible{
     opacity: 0;
 }
+
 .visible{
     opacity: 1;
 }
 
-
 #imagenRenglon{
-   width: 100px;
+   width: 80px;
 }
 
 #botones_ahorcado{
@@ -147,9 +174,9 @@ header{
     text-align:center;
     width: 350px;
     padding: 2%;
-    margin: 5% 2%;
+    margin: 2%;
     color: aliceblue;
-    background: #0A3871;
+    background: #4e88ce;
     border-radius: 24px;
     font-size: 20px;
 }
@@ -158,29 +185,101 @@ header{
     text-align: center;
     width: 350px;
     padding: 2%;
-    margin: 5% 2%;
+    margin: 2%;
     color: #0A3871;
-    background:aliceblue ;
+    background:rgb(73, 212, 217) ;
     border-radius: 24px;
     font-size: 20px;
 }
 
+#juegoAhorcado {
+    align-items: center;
+    text-align: center;
+}
+
+#animacionAhorcado{
+    height: 360px;
+    width: 600px;
+    margin: 0 auto;
+}
+#img1,#img2,#img3,#img4,#img5,#img6,#img7,#img8,#img9,#img10{
+    position: relative;
+    object-fit: contain;
+    width: auto; 
+    max-height: 100%;
+}
+
+#img1{
+    
+    left: 130px;
+    
+    
+}
+#img2{
+    
+    left: -110px;
+    
+}
+#img3{
+    
+    top: -355px;
+    left: -120px;
+}
+#img4{
+    
+    top: -310px;
+    left: -130px;
+}
+#img5{
+    
+    top: -250px;
+    left: -170px; 
+}
+#img6{
+    
+    top: -325px;
+    left: 173px; 
+}
+#img7{
+    
+    top: -325px;
+    left: 90px;
+}
+#img8{
+    
+    top: -255px;
+    left: 82px;    
+}
+#img9{
+    
+    top: -195px;
+    left: 38px; 
+}
+#img10{
+    
+    top: -195px;
+    left: 30px; 
+}
+
+
+
 #yo{
     text-align: center;
     vertical-align: bottom;
+    
 }
+
 
 @media only screen and (max-width: 768px) {
     header{
         padding: 3.5%;
     }
-
+    
     #titulo{
         font-size: 30px;
     }
     
     #botones{
-        background-color: #144;
         padding: 15%;
     }
 
@@ -210,12 +309,32 @@ header{
         padding: 5px;
         margin: 10% 5%;
     }
+    #derrota, #victoria{
+        text-align: center;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    #imagenRenglon{
+        width: 70px;
+     }
     #yo{
-        margin-top: 25%;
+        margin-top: 5%;
         text-align: center;
         vertical-align: bottom;
     }
 }
+
+@media only screen and (max-width: 425px) and (min-width: 375px){
+    body{
+        display: inline-block;
+        
+    }
+    #imagenRenglon{
+        width: 45px;
+        height: 5px;
+    }
+}
+
 @media only screen and (max-width: 375px) {
     header{
         padding: 5%;
@@ -224,7 +343,7 @@ header{
         font-size: 25px;
     }
     #botones{
-        background-color: #055;
+       
         padding: 15%;
     }
     #botonInicio{
@@ -259,6 +378,10 @@ header{
         padding: 5px;
         margin: 10% auto;
     }
+    #imagenRenglon{
+        width: 45px;
+        height: 5px;
+    }
     #yo{
       
         text-align: center;
@@ -266,4 +389,19 @@ header{
     }
   }
 
-  
+  @media only screen and (max-width: 375px) {
+    body{
+        display: inline-block;
+        
+    }
+    #imagenRenglon{
+        width: 45px;
+        height: 5px;
+    } 
+    #yo{
+        max-width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        vertical-align: bottom;
+    }
+  }
