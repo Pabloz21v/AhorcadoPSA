@@ -53,6 +53,26 @@ body.addEventListener("keydown",function(event) {
     animacionDeAhorcado(vidas)
 })
 
+const fixsCelular = document.querySelector("fixs")
+
+fixsCelular.addEventListener("keydown",function(event) {
+    event.preventDefault();
+    let letraPrecionadaInicial = event.key
+    let letraPrecionada = letraPrecionadaInicial.toUpperCase()
+
+    let expReg = /[A-Z]/;
+
+    let largoLetraPrecionada = letraPrecionada.length;
+    if (letraPrecionada != letraPrecionada.toLowerCase() && largoLetraPrecionada == 1 && letraPrecionada.search(expReg) == 0 ) {
+        coincidencias(letraPrecionada)
+        grabarLetras(letraPrecionada)
+        victoria(letraPrecionada)
+        
+    }
+    animacionDeAhorcado(vidas)
+})
+
+
 //busca coincidencias
 function coincidencias(letraPrecionada) {
     for (let i = 0; i < largoDeLaPalabra; i++) {
