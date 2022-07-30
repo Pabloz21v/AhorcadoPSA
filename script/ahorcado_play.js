@@ -53,7 +53,7 @@ body.addEventListener("keydown",function(event) {
     animacionDeAhorcado(vidas)
 })
 
-const fixsCelular = document.querySelector("fixs")
+const fixsCelular = document.querySelector("fixCelu")
 
 fixsCelular.addEventListener("keydown",function(event) {
     event.preventDefault();
